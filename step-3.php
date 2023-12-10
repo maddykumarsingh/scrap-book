@@ -129,6 +129,30 @@ body {
     <p id="meaning" style="text-align: center;font-family:'PF Handbook Pro Regular';font-weight:normal;font-size:24px; width: 80%; left: 10%; position: absolute;">The sun; Belonging to Aditi. <?=$personName?> is a masculine name of Sanskrit origin.</p>
 </div>
 
-<a href="Step4.html" id="submitBtn"></a>
+<a href="step-4.php" id="submitBtn"></a>
+
+<script>
+// Fetch the information and update the 'meaning' element
+function fetchAndDisplayMeaning() {
+    const name = '<?=$personName?>'; // You can dynamically get the name from the server or user input
+
+    fetch(`http://localhost/scrap-book/name-meaning.php?name=${name}`)
+        .then(response => response.text())
+        .then(data => {
+            // Update the 'meaning' element with the fetched data
+            console.log(data);
+            document.getElementById('meaning').innerHTML = data;
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+}
+
+// Call the function when the page loads
+window.onload = function() {
+    fetchAndDisplayMeaning();
+};
+</script>
+
 </body>
 </html>

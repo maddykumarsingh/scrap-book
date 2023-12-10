@@ -1,3 +1,38 @@
+<?php 
+session_start();
+
+if (!isset($_SESSION["id"])) {
+    header("Location: index.php");
+    exit();
+}
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $birthdate = $_POST["dob"];
+
+  $conn = new mysqli("localhost", "root", "root", "scrap_book" , 3307);
+
+  if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+  }
+
+  $id = $conn->real_escape_string($_SESSION["id"]);
+  $birthdate = $conn->real_escape_string($birthdate);
+
+  $sql = "UPDATE person SET birthdate = '$birthdate' WHERE person_id = '$id'";
+
+  if ($conn->query($sql) === TRUE) {
+       header('Location: step-5.php');
+  } else {
+     
+  }
+
+  $conn->close();
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -134,9 +169,11 @@ input[type=date] {
 <div id="logo"></div>
 <div id="content">
     <div>
+    <form method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
         <label for="dob" style="text-align: center; margin-left: 50px; font-family:'PF Handbook Pro Regular'; font-weight:normal; font-size:32px;">Enter your date of birth</label><br/>
         <input type="date" id="dob" name="dob" onchange="calculateAge()">
-        <button id="submitBtn" onclick="redirectToNextPage()"></button>
+        <button type="submit" id="submitBtn" ></button>
+    </form>
     </div>
     <div id="cakeContainer">
         <img id="cake" src="images/Cake.png" alt="Birthday Cake" style="width:150px; height:auto;">

@@ -1,4 +1,11 @@
 <?php 
+// Start a new or resume the existing session
+session_start();
+
+// Destroy the current session
+session_destroy();
+
+// Start a fresh session
 session_start();
 ?>
 <!DOCTYPE html>
@@ -81,6 +88,9 @@ body {
 }
 
 #submitBtn {
+  position: absolute;
+  top: 75%;
+  left:50%;
   display: block;
   margin: 20px auto;
   background-image: url('images/Icon awesome-chevron-circle-right.png');
