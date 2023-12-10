@@ -76,15 +76,24 @@
     switch (status) {
       case 'single':
         selectedImage = 'images/Single_SelectColor.png';
+         nextStep('step7-1.html')
         break;
       case 'engaged':
         selectedImage = 'images/Engaged_SelectColor.png';
+        nextStep('step7-3.html')
         break;
       case 'married':
         selectedImage = 'images/Married_SelectColor.png';
+        nextStep('step7-2.html')
         break;
     }
     document.getElementById(status).style.backgroundImage = "url('" + selectedImage + "')";
+  }
+
+ function nextStep(url){
+     if( url ){
+      setTimeout(() => {window.location.href = url;} , 400 );
+     }
   }
 </script>
 

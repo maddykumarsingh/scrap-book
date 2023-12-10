@@ -150,7 +150,16 @@ body {
         });
         // Highlight the selected button
         document.getElementById(gender).style.opacity = '1';
+        setTimeout( () => {
+          nextStep();
+        } , 400)
       }
+
+
+      function nextStep(){
+         window.location.href = 'step7.html'
+      }
+
     </script>
     
 </body>

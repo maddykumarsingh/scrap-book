@@ -1,7 +1,21 @@
+<?php
+
+session_start();
+
+$personName = 'Nitin';
+
+if (isset($_SESSION["first_name"]) ) {
+  $personName =$_SESSION["first_name"];
+} 
+
+
+?>
 
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" type="text/css"
+    href="fonts/style.css"/>
 <style>
 @keyframes flyInFromTopLeft {
   from {
@@ -21,6 +35,14 @@
   }
   to {
     transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
     opacity: 1;
   }
 }
@@ -58,16 +80,6 @@
   background-size: cover;
 }
 
-input[type=text] {
-  display: block;
-  margin: 20px auto;
-  background-color: #fcf8e8;
-  color: #baa78c;
-  font-size: 20px;
-  border: 1px solid #baa78c;
-  padding: 5px;
-  border-radius: 5px;
-}
 
 #submitBtn {
   display: block;
@@ -78,6 +90,9 @@ input[type=text] {
   background-size: cover;
   border: none;
   cursor: pointer;
+  position: absolute;
+  top:75%;
+  left:50%;
   background-color: transparent;
 
 }
@@ -92,9 +107,16 @@ body {
 
 #content {
   position: absolute;
-  top:40%;
+  top:28%;
   left:40%;
+  background-image: url('images/Ellipse 94.png');
+  width: 350px; /* Adjust size as needed */
+  height: 350px; /* Adjust size as needed */
+  background-size: cover;
+  animation: fadeIn 2s forwards;
+
 }
+
 </style>
 </head>
 <body>
@@ -103,12 +125,10 @@ body {
 <div id="side2Image"></div>
 <div id="logo"></div>
 <div id="content">
-  <input type="text" id="firstName" placeholder="First Name">
-  <input type="text" id="lastName" placeholder="Last Name">
-  <a href="step3.html" id="submitBtn"></a>
-
+    <h2 id="name" style="text-align: center;font-family:'PF Handbook Pro Regular';font-weight:normal;font-size:42px;"><?=$personName?></h2>
+    <p id="meaning" style="text-align: center;font-family:'PF Handbook Pro Regular';font-weight:normal;font-size:24px; width: 80%; left: 10%; position: absolute;">The sun; Belonging to Aditi. <?=$personName?> is a masculine name of Sanskrit origin.</p>
 </div>
 
-
+<a href="Step4.html" id="submitBtn"></a>
 </body>
 </html>

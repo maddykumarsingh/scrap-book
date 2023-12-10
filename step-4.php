@@ -175,7 +175,7 @@ function displayCakeAndCandles(age) {
 
 function redirectToNextPage() {
     // Redirect to the next page (replace 'nextPage.html' with the actual URL)
-    window.location.href = 'nextPage.html';
+    window.location.href = 'step5.html';
 }
 </script>
 </body>

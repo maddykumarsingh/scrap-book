@@ -1,4 +1,6 @@
-
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -97,7 +99,7 @@ body {
 
 <div id="logo"></div>
 <div id="nextImage">
-  <a href="step2.html" id="submitBtn"></a>
+  <a href="step-2.php" id="submitBtn"></a>
 </div>
 
 <div id="footer"></div>
