@@ -129,7 +129,7 @@ body {
     <p id="meaning" style="text-align: center;font-family:'PF Handbook Pro Regular';font-weight:normal;font-size:24px; width: 80%; left: 10%; position: absolute;">Your name is wonderfully unique and carries a divine touch; you are a precious blessing.</p>
 </div>
 
-<a href="step-4.php" id="submitBtn"></a>
+<a href="your-zodaic.php" id="submitBtn"></a>
 
 <script>
 // Fetch the information and update the 'meaning' element
