@@ -204,6 +204,6 @@ body {
       }
 
     </script>
-    
+    <?php include_once 'orientation-check.php'; ?>
 </body>
 </html>

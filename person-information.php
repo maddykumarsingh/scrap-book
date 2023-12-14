@@ -156,6 +156,6 @@ body {
      form.submit();
    })
 </script>
-
+<?php include_once 'orientation-check.php'; ?>
 </body>
 </html>

@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "UPDATE person SET country = '$country' WHERE person_id = '$id'";
 
     if ($conn->query($sql) === TRUE) {
-       header("Location:thankyou.html");
+       header("Location:thankyou.php");
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
@@ -70,6 +70,8 @@ body {
     <h2 style="text-align: center; color: #c31d2e; margin-top: 50px; ">Favorite travel destination or dream destination</h2>
     <div id="regions_div" style="width: 900px; height: 500px; align-self: center; margin: auto; margin-top: 50px;">
     </div>
+
+    <?php include_once 'orientation-check.php'; ?>
 </body>
 <script>
     google.charts.load('current', {

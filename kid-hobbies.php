@@ -171,6 +171,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     });
   };
 </script>
-
+<?php include_once 'orientation-check.php'; ?>
 </body>
 </html>

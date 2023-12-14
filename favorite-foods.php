@@ -157,5 +157,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         inputContainer.appendChild(newInputGroup);
     }
 </script>
+<?php include_once 'orientation-check.php'; ?>
 </body>
 </html>

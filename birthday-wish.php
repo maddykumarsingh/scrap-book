@@ -153,6 +153,6 @@ href="/home/dataenrichmentmy/public_html/scrap-book/fonts/style.css"/>
   const giftGif = document.getElementById('giftGif');
   giftGif.style.animation = `fadeIn 0.3s ${gifDelay}s forwards`;
 </script>
-
+<?php include_once 'orientation-check.php'; ?>
 </body>
 </html>

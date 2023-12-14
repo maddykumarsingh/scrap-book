@@ -112,7 +112,7 @@
 
 <a href="set-reminder.php" id="submitBtn"></a>
 
-
+<?php include_once 'orientation-check.php'; ?>
 </body>
 <script>
   // Get the modal

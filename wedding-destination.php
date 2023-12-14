@@ -152,6 +152,6 @@ function submitDestination(destination) {
   form.submit();
 }
 </script>
-
+<?php include_once 'orientation-check.php'; ?>
 </body>
 </html>

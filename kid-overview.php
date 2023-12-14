@@ -121,6 +121,6 @@ window.onload = function() {
     fetchAndDisplayMeaning();
 };
 </script>
-
+<?php include_once 'orientation-check.php'; ?>
 </body>
 </html>

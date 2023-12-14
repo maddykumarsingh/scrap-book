@@ -92,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <a style="padding:5px 10px; margin:10px ; background:white; border-radius:10px;" href="hobbies.php">Skip</a>
   </form>
 
-
+  <?php include_once 'orientation-check.php'; ?>
 
 </body>
 </html>

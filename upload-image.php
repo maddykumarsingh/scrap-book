@@ -157,6 +157,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Use files here
   });
 </script>
-
+<?php include_once 'orientation-check.php'; ?>
 </body>
 </html>

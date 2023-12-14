@@ -51,6 +51,6 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css
       } 
     });
     </script>
-
+<?php include_once 'orientation-check.php'; ?>
 </body>
 </html>

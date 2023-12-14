@@ -211,5 +211,6 @@ function redirectToNextPage() {
     window.location.href = 'step5.html';
 }
 </script>
+<?php include_once 'orientation-check.php'; ?>
 </body>
 </html>

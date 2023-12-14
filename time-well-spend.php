@@ -89,5 +89,7 @@
 <img id="dance" class="tip-image" src="images/Dance.png" style="animation: rubberBand 1s 2.5s forwards;" alt="Set personal goals">
 <a href="hobbies.php" id="submitBtn"></a>
 </div>
+
+<?php include_once 'orientation-check.php'; ?>
 </body>
 </html>
