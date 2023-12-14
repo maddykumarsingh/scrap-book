@@ -39,6 +39,6 @@ $response_data = json_decode($response, true);
 $meaning_of_name = $response_data['choices'][0]['text'];
 
 // Print the meaning
-echo "The meaning of the name $name_to_lookup is: $meaning_of_name";
+echo " $meaning_of_name";
 
 ?>

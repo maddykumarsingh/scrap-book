@@ -93,7 +93,7 @@ if (!isset($_SESSION["id"])) {
 <div id="logo"></div>
 <div id="content">
     <h2 id="name" style="text-align: center;font-family:'PF Handbook Pro Regular';font-weight:normal;font-size:42px;"><?=$kidName?></h2>
-    <p id="meaning" style="text-align: center;font-family:'PF Handbook Pro Regular';font-weight:normal;font-size:24px; width: 80%; left: 10%; position: absolute;">The sun; Belonging to Aditi. Aditya is a masculine name of Sanskrit origin.</p>
+    <p id="meaning" style="text-align: center;font-family:'PF Handbook Pro Regular';font-weight:normal;font-size:24px; width: 80%; left: 10%; position: absolute;">Your name is wonderfully unique and carries a divine touch; you are a precious blessing.</p>
 </div>
 <a href="kid-hobbies.php" id="submitBtn"></a>
 
@@ -103,7 +103,7 @@ if (!isset($_SESSION["id"])) {
 function fetchAndDisplayMeaning() {
     const name = '<?=$kidName?>'; // You can dynamically get the name from the server or user input
 
-    fetch(`http://localhost/scrap-book/name-meaning.php?name=${name}`)
+    fetch(`https://data-enrichment.myofficeengagements.com//scrap-book/name-meaning.php?name=${name}`)
         .then(response => response.text())
         .then(data => {
             // Update the 'meaning' element with the fetched data

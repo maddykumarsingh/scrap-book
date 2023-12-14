@@ -38,7 +38,7 @@ session_start();
 }
 
 #logo {
-  background-image: url('images/ABC_Red.jpg');
+  background-image: url('images/logo.png');
   position: absolute;
   top: 35%;
   left: 30%;

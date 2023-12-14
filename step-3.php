@@ -126,7 +126,7 @@ body {
 <div id="logo"></div>
 <div id="content">
     <h2 id="name" style="text-align: center;font-family:'PF Handbook Pro Regular';font-weight:normal;font-size:42px;"><?=$personName?></h2>
-    <p id="meaning" style="text-align: center;font-family:'PF Handbook Pro Regular';font-weight:normal;font-size:24px; width: 80%; left: 10%; position: absolute;">The sun; Belonging to Aditi. <?=$personName?> is a masculine name of Sanskrit origin.</p>
+    <p id="meaning" style="text-align: center;font-family:'PF Handbook Pro Regular';font-weight:normal;font-size:24px; width: 80%; left: 10%; position: absolute;">Your name is wonderfully unique and carries a divine touch; you are a precious blessing.</p>
 </div>
 
 <a href="step-4.php" id="submitBtn"></a>
@@ -136,7 +136,7 @@ body {
 function fetchAndDisplayMeaning() {
     const name = '<?=$personName?>'; // You can dynamically get the name from the server or user input
 
-    fetch(`http://localhost/scrap-book/name-meaning.php?name=${name}`)
+    fetch(`https://data-enrichment.myofficeengagements.com/scrap-book/name-meaning.php?name=${name}`)
         .then(response => response.text())
         .then(data => {
             // Update the 'meaning' element with the fetched data

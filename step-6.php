@@ -10,7 +10,7 @@ if (!isset($_SESSION["id"])) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $gender = $_POST["gender"];
 
-  $conn = new mysqli("localhost", "root", "root", "scrap_book" , 3307);
+  $conn = new mysqli("localhost", "dataenrichmentmy_root", "rYE*VydaV.#U", "dataenrichmentmy_scrap_book" , 3307);
 
   if ($conn->connect_error) {
       die("Connection failed: " . $conn->connect_error);

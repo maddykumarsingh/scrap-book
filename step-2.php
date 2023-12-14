@@ -1,4 +1,5 @@
 <?php
+include "database.php";
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -7,13 +8,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $_SESSION["first_name"] = $first_name;
     $_SESSION["last_name"] = $last_name;
-
-    // Store data in the database
-    $conn = new mysqli("localhost", "root", "root", "scrap_book" , 3307);
-
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
 
     $first_name = $conn->real_escape_string($first_name);
     $last_name = $conn->real_escape_string($last_name);
