@@ -1,4 +1,5 @@
 <?php
+include "database.php";
 session_start();
 
 // Check if the user's ID is stored in the session
@@ -18,14 +19,6 @@ if (!isset($_SESSION["kid_id"])) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect additional data from this page
     $hobbies = $_POST["kid_hobbies"];
-
-    // Store data in the database
-    $conn = new mysqli("localhost", "dataenrichmentmy_root", "rYE*VydaV.#U", "dataenrichmentmy_scrap_book" , 3307);
-
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
     $id = $conn->real_escape_string($_SESSION["id"]);
     $kidID = $conn->real_escape_string($_SESSION["kid_id"]);
     $hobbies = $conn->real_escape_string($hobbies);
@@ -131,6 +124,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <img src='images/Group 8250.png' alt='skating' style="animation: rubberBand 1s 5.0s forwards;" class='hobby'>
 </div>
 <button id="submitBtn" onclick="submitForm()"></button>
+<a href="kids-information.php">Add More Kids</a>
 
 <script>
 

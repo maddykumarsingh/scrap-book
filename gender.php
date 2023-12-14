@@ -1,4 +1,5 @@
 <?php 
+include 'database.php';
 session_start();
 
 if (!isset($_SESSION["id"])) {
@@ -10,19 +11,13 @@ if (!isset($_SESSION["id"])) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $gender = $_POST["gender"];
 
-  $conn = new mysqli("localhost", "dataenrichmentmy_root", "rYE*VydaV.#U", "dataenrichmentmy_scrap_book" , 3307);
-
-  if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-  }
-
   $id = $conn->real_escape_string($_SESSION["id"]);
   $gender = $conn->real_escape_string($gender);
 
   $sql = "UPDATE person SET gender = '$gender' WHERE person_id = '$id'";
 
   if ($conn->query($sql) === TRUE) {
-       header('Location: step-7.php');
+       header('Location: martial-status.php');
   } else {
      
   }

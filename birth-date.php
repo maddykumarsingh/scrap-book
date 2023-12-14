@@ -1,4 +1,5 @@
 <?php 
+include_once "database.php";
 session_start();
 
 if (!isset($_SESSION["id"])) {
@@ -10,19 +11,13 @@ if (!isset($_SESSION["id"])) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $birthdate = $_POST["dob"];
 
-  $conn = new mysqli("localhost", "dataenrichmentmy_root", "rYE*VydaV.#U", "dataenrichmentmy_scrap_book" , 3307);
-
-  if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-  }
-
   $id = $conn->real_escape_string($_SESSION["id"]);
   $birthdate = $conn->real_escape_string($birthdate);
 
   $sql = "UPDATE person SET birthdate = '$birthdate' WHERE person_id = '$id'";
 
   if ($conn->query($sql) === TRUE) {
-       header('Location: step-5.php');
+       header('Location: birthday-wish.php');
   } else {
      
   }
@@ -38,6 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <link rel="stylesheet" type="text/css"
     href="fonts/style.css"/>
+  <?php include_once 'orientation-check.php'; ?>
 <style>
 @keyframes flyInFromTopLeft {
   from {

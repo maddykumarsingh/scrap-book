@@ -1,4 +1,6 @@
+
 <?php 
+include 'database.php';
 session_start();
 
 if (!isset($_SESSION["id"])) {
@@ -10,11 +12,6 @@ if (!isset($_SESSION["id"])) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $wish = $_POST["wish"];
 
-  $conn = new mysqli("localhost", "dataenrichmentmy_root", "rYE*VydaV.#U", "dataenrichmentmy_scrap_book" , 3306);
-
-  if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-  }
 
   $id = $conn->real_escape_string($_SESSION["id"]);
   $wish = $conn->real_escape_string($wish);
@@ -22,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $sql = "UPDATE person SET wish = '$wish' WHERE person_id = '$id'";
 
   if ($conn->query($sql) === TRUE) {
-       header('Location: step-6.php');
+       header('Location: gender.php');
   } else {
      
   }
@@ -41,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Birthday Wish</title>
 <link rel="stylesheet" type="text/css"
-href="fonts/style.css"/>
+href="/home/dataenrichmentmy/public_html/scrap-book/fonts/style.css"/>
 <style>
   body {
     font-family: 'Arial', sans-serif;

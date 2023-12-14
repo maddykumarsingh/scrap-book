@@ -1,4 +1,5 @@
 <?php
+include "database.php";
 session_start();
 
 // Check if the user's ID is stored in the session
@@ -16,12 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Convert the array to a comma-separated string
     $favoriteFoodsString = implode(',', $favoriteFoods);
 
-    // Store data in the database
-    $conn = new mysqli("localhost", "dataenrichmentmy_root", "rYE*VydaV.#U", "dataenrichmentmy_scrap_book" , 3307);
-
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
 
     $id = $conn->real_escape_string($_SESSION["id"]);
     $favoriteFoodsString = $conn->real_escape_string($favoriteFoodsString);

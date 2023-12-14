@@ -1,5 +1,5 @@
 <?php 
-
+include 'database.php';
 session_start();
 
 
@@ -13,11 +13,7 @@ if (!isset($_SESSION["id"])) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $martial = $_POST["martial"];
 
-  $conn = new mysqli("localhost", "dataenrichmentmy_root", "rYE*VydaV.#U", "dataenrichmentmy_scrap_book" , 3307);
-
-  if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-  }
+ 
 
   $id = $conn->real_escape_string($_SESSION["id"]);
   $martial = $conn->real_escape_string($martial);
@@ -26,13 +22,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if ($conn->query($sql) === TRUE) {
     if($martial === 'single'){
-      header('Location: step-single.php');
+      header('Location:time-well-spend.php');
     }
     elseif( $martial === 'engaged'){
-      header('Location: step-engaged.php');
+      header('Location:wedding-destination.php');
     }
     elseif( $martial === 'married'){
-      header('Location: step-married.php');
+      header('Location:movie-recommendations.php');
     }
   } else {
      

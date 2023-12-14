@@ -1,5 +1,5 @@
 <?php
-
+include_once 'database.php';
 
 session_start();
 
@@ -11,12 +11,7 @@ if (!isset($_SESSION["id"])) {
 
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Database connection
-    $conn = new mysqli("localhost", "dataenrichmentmy_root", "rYE*VydaV.#U", "dataenrichmentmy_scrap_book" , 3307);
 
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
 
     // Check if files were uploaded
     if (isset($_FILES['files'])) {
@@ -24,9 +19,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Get the person's ID from the session (replace with your actual session variable)
         $person_id = $_SESSION["id"];
+        $kid_id =  $_SESSION["kid_id"];
 
         // Create a directory for the person's files
-        $upload_path = "uploads/$person_id/";
+        $upload_path = "uploads/$person_id/$kid_id/";
         if (!is_dir($upload_path)) {
             mkdir($upload_path, 0777, true);
         }
@@ -59,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "- $error\n";
             }
         } else {
-           header("Location:hobbies.php");
+           header("Location:add-more-kid.php");
         }
     }
 

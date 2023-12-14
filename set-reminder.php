@@ -1,4 +1,5 @@
 <?php
+include "database.php";
 session_start();
 
 // Check if the user's ID is stored in the session
@@ -11,20 +12,12 @@ if (!isset($_SESSION["id"])) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect additional data from this page
     $email = $_POST["email"]; // New field
-
-    // Convert the array to a comma-separated string
-
-    // Store data in the database
-    $conn = new mysqli("localhost", "dataenrichmentmy_root", "rYE*VydaV.#U", "dataenrichmentmy_scrap_book" , 3307);
-
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+    $anniversaryDate = $_POST["anniversary_date"]; //
 
     $id = $conn->real_escape_string($_SESSION["id"]);
     $email = $conn->real_escape_string($email); // New field
 
-    $sql = "UPDATE person SET email = '$email' WHERE person_id = '$id'";
+    $sql = "UPDATE person SET email = '$email', anniversary_date = '$anniversaryDate' WHERE person_id = '$id'";
 
     if ($conn->query($sql) === TRUE) {
        header("Location:kids-information.php");
@@ -154,8 +147,9 @@ href="fonts/style.css"/>
 <form id='form' method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
 <div class="container">
   <div class="left-section">
-    <img src="images/reminder.png" alt="Reminder" style="width: 90%; max-width: 600px;">
+    <input type="date" name="anniversary_date" class="date-input" placeholder="Enter your Anniversary Date">
     <input type="email" name="email" class="date-input" placeholder="Enter your email id for Notification">
+    <img src="images/reminder.png" alt="Reminder" style="width: 90%; max-width: 600px;">
     <button type="button" id="submitBtn" onclick="setReminder()"></button>
   </div>
   <div class="right-section">

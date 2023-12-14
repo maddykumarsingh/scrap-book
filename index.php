@@ -104,15 +104,16 @@ body {
 
 
 </style>
+
 </head>
 <body>
 
 <div id="logo"></div>
 <div id="nextImage">
-  <a href="step-2.php" id="submitBtn"></a>
+  <a href="person-information.php" id="submitBtn"></a>
 </div>
 
 <div id="footer"></div>
-
+<?php include_once 'orientation-check.php'; ?>
 </body>
 </html>

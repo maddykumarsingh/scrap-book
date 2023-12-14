@@ -1,4 +1,5 @@
 <?php
+include "database.php";
 session_start();
 
 // Check if the user's ID is stored in the session
@@ -16,12 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $_SESSION["kid_name"] = $kidName;
 
-    // Store data in the database
-    $conn = new mysqli("localhost", "dataenrichmentmy_root", "rYE*VydaV.#U", "dataenrichmentmy_scrap_book" , 3306);
-
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
 
     $id = $conn->real_escape_string($_SESSION["id"]);
     $kidName = $conn->real_escape_string($kidName); // New field
@@ -94,6 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <input type="text" name="kid_name" class="input-field" placeholder="Your Kid's Name">
     <input type="number" name="kid_age" class="input-field" placeholder="Age">
     <button id="nextButton" onclick="goToNextPage()">Next</button>
+    <a style="padding:5px 10px; margin:10px ; background:white; border-radius:10px;" href="hobbies.php">Skip</a>
   </form>
 
 

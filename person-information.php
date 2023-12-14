@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $conn->close();
 
-        header("Location: step-3.php");
+        header("Location:your-name-meaning.php");
         exit();
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
