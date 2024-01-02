@@ -1,15 +1,42 @@
 <?php
-
+include_once "database.php";
 session_start();
 
-$personName = 'Nitin';
 
-if (isset($_SESSION["first_name"]) ) {
-  $personName =$_SESSION["first_name"];
-} 
+if (!isset($_SESSION["id"])) {
+    header("Location:index.php");
+}
 
+
+// Given date
+$date = $_SESSION['dob'];
+$zodiacData = null;
+
+// Extract month and day from the date
+$month = date('m', strtotime($date));
+$day = date('d', strtotime($date));
+
+// SQL query
+$sql = "SELECT *
+        FROM ZodiacSigns
+        WHERE
+          (startMonth = $month AND startDay <= $day)
+          OR
+          (endMonth = $month AND endDay >= $day)";
+
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // Output data of the first row
+    $zodiacData = $result->fetch_assoc();
+} else {
+    echo "No records found";
+}
+
+$conn->close();
 
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -125,11 +152,11 @@ body {
 <div id="side2Image"></div>
 <div id="logo"></div>
 <div id="content">
-    <h2 id="name" style="text-align: center;font-family:'PF Handbook Pro Regular';font-weight:normal;font-size:42px;">Zodaic Sign</h2>
-    <p id="meaning" style="text-align: center;font-family:'PF Handbook Pro Regular';font-weight:normal;font-size:24px; width: 80%; left: 10%; position: absolute;">Your name is wonderfully unique and carries a divine touch; you are a precious blessing.</p>
+    <h2 id="name" style="text-align: center;font-family:'PF Handbook Pro Regular';font-weight:normal;font-size:42px;"><?=$zodiacData['sign']?></h2>
+    <p id="meaning" style="text-align: center;font-family:'PF Handbook Pro Regular';font-weight:normal;font-size:24px; width: 80%; left: 10%; position: absolute;"><?=$zodiacData['horoscopeText']?></p>
 </div>
 
-<a href="birth-date.php" id="submitBtn"></a>
+<a href="gender.php" id="submitBtn"></a>
 
 <script>
 // Fetch the information and update the 'meaning' element

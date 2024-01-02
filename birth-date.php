@@ -3,13 +3,13 @@ include_once "database.php";
 session_start();
 
 if (!isset($_SESSION["id"])) {
-    header("Location: index.php");
-    exit();
+    header("Location:index.php");
 }
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $birthdate = $_POST["dob"];
+  $_SESSION['dob'] =  $birthdate;
 
   $id = $conn->real_escape_string($_SESSION["id"]);
   $birthdate = $conn->real_escape_string($birthdate);
@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $sql = "UPDATE person SET birthdate = '$birthdate' WHERE person_id = '$id'";
 
   if ($conn->query($sql) === TRUE) {
-       header('Location: birthday-wish.php');
+       header('Location:your-zodaic.php');
   } else {
      
   }

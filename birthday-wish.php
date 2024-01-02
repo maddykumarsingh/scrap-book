@@ -1,17 +1,21 @@
-
-<?php 
-include 'database.php';
+<?php
 session_start();
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+
+include_once "database.php";
+
 
 if (!isset($_SESSION["id"])) {
-    header("Location: index.php");
-    exit();
+  header("Location: index.php");
 }
+
+
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $wish = $_POST["wish"];
-
 
   $id = $conn->real_escape_string($_SESSION["id"]);
   $wish = $conn->real_escape_string($wish);
@@ -19,16 +23,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $sql = "UPDATE person SET wish = '$wish' WHERE person_id = '$id'";
 
   if ($conn->query($sql) === TRUE) {
-       header('Location: gender.php');
+    header('Location: gender.php');
   } else {
      
   }
 
   $conn->close();
-}
-
-
-?>
+}?>
 
 
 <!DOCTYPE html>
@@ -153,6 +154,6 @@ href="/home/dataenrichmentmy/public_html/scrap-book/fonts/style.css"/>
   const giftGif = document.getElementById('giftGif');
   giftGif.style.animation = `fadeIn 0.3s ${gifDelay}s forwards`;
 </script>
-<?php include_once 'orientation-check.php'; ?>
+
 </body>
 </html>

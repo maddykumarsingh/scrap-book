@@ -39,14 +39,16 @@ session_start();
 
 #logo {
   background-image: url('images/logo.png');
-  position: absolute;
-  top: 35%;
-  left: 30%;
-  transform: translate(-50%, -50%);
-  width: 650px; /* Initial size */
-  height: 125px; /* Initial size */
-  background-size: cover;
-  animation: logoAnimation 6s forwards; /* 4 seconds to stay + 2 seconds to fade */
+    position: relative;
+    top: 27%;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    left: 0;
+    right: 0;
+    width: 260px;
+    height: 100%;
+    background-size: contain;
+  animation: logoAnimation 6s forwards; /*  4 seconds to stay + 2 seconds to fade */
 }
 
 body {
@@ -81,8 +83,9 @@ body {
   transform: translate(-50%, -50%);
   width: 80%; /* Initial size */
   height: 80%; /* Initial size */
-  background-size: cover;
-  opacity: 0; /* Start with the next image invisible */
+     background-size: contain;
+    opacity: 0;
+    background-repeat: no-repeat;
   animation: fadeIn 2s forwards;
   animation-delay: 6s; /* Delay the start of the next image animation */
 }
@@ -101,7 +104,15 @@ body {
   cursor: pointer;
   background-color: transparent;
 }
-
+/* Media query for screens below 800px width */
+@media screen and (max-width: 800px) {
+  #logo {
+       width: 189px;
+    height: 100%;
+    float: none;
+    background-size: contain;
+  }
+}
 
 </style>
 

@@ -134,7 +134,7 @@ function submitDestination(destination) {
   // Create a form element
   var form = document.createElement('form');
   form.method = 'post';
-  form.action = 'step-engaged.php'; // Replace with your actual processing script
+  form.action = '<?php $_SERVER['SELF']?>'; // Replace with your actual processing script
 
   // Add a hidden input with the destination value
   var input = document.createElement('input');
