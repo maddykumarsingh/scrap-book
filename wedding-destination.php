@@ -110,22 +110,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="options-section">
   <!-- Option buttons for destinations -->
   <button class="option-button" onclick="submitDestination('Kerala')">
-    <img src="images/Mask Group 3.png" alt="Kerala">
+    <img src="images/Kerala.png" alt="Kerala">
   </button>
   <button class="option-button" onclick="submitDestination('Maldives')">
-    <img src="images/Mask Group 4.png" alt="Maldives">
+    <img src="images/Maldives.png" alt="Maldives">
   </button>
   <button class="option-button" onclick="submitDestination('Goa')">
-    <img src="images/Mask Group 5.png" alt="Goa">
+    <img src="images/Goa.png" alt="Goa">
   </button>
-  <button class="option-button" onclick="submitDestination('Jaipur')">
-    <img src="images/Mask Group 7.png" alt="Jaipur">
+  <button class="option-button" onclick="submitDestination('Jodhpur')">
+    <img src="images/Jodhpur.png" alt="Jaipur">
   </button>
   <button class="option-button" onclick="submitDestination('Udaipur')">
-    <img src="images/Mask Group 8.png" alt="Udaipur">
+    <img src="images/Udaipur.png" alt="Udaipur">
   </button>
   <button class="option-button" onclick="submitDestination('Hometown')">
-    <img src="images/Group 8145.png" alt="Hometown">
+    <img src="images/Hometown.png" alt="Hometown">
   </button>
 </div>
 

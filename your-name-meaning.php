@@ -81,20 +81,26 @@ if (isset($_SESSION["first_name"]) ) {
 }
 
 
-#submitBtn {
-  display: block;
-  margin: 20px auto;
-  background-image: url('images/Icon awesome-chevron-circle-right.png');
-  width: 50px; /* Adjust size as needed */
-  height: 50px; /* Adjust size as needed */
-  background-size: cover;
-  border: none;
-  cursor: pointer;
-  position: absolute;
-  top:75%;
-  left:50%;
-  background-color: transparent;
-z-index:100;
+ #submitBtn {
+     display: block;
+    margin: 20px auto;
+    width: 180px;
+    height: 50px;
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: 2%;
+    right: 3%;
+    background-color: black;
+    border-radius: 30px;
+    color: white;
+    font-size: 32px;
+    line-height: 48px;
+    text-decoration: none;
+    font-family: sans-serif;
+    text-align: center;
+    z-index:10;
 }
 
 body {
@@ -233,9 +239,9 @@ p.pClass{
     <p id="meaning" class="pClass">Your name is wonderfully unique and carries a divine touch; you are a precious blessing.</p>
 </div>
 
-<a href="birth-date.php" id="submitBtn"></a>
+
     </div>
-    
+    <a href="birth-date.php" id="submitBtn">next</a>
     
     <div class="bottomSection">
           <img src="images/side1.png" />
@@ -251,7 +257,7 @@ p.pClass{
 function fetchAndDisplayMeaning() {
     const name = '<?=$personName?>'; // You can dynamically get the name from the server or user input
 
-    fetch(`https://data-enrichment.myofficeengagements.com/scrap-book/name-meaning.php?name=${name}`)
+    fetch(`https://data-enrichment.myofficeengagements.com/name-meaning.php?name=${name}`)
         .then(response => response.text())
         .then(data => {
             // Update the 'meaning' element with the fetched data

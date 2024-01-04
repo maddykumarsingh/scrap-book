@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "UPDATE kids SET hobbies = '$hobbies' WHERE person_id = '$id' AND kid_id = '$kidID'";
 
     if ($conn->query($sql) === TRUE) {
-        header("Location:upload-image.php");
+        header("Location:add-more-kid.php");
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   .hobby {
     width: 200px; /* Adjust size as needed */
     height: 200px; /* Adjust size as needed */
-    border-radius: 50%;
+   /* border-radius: 50%;*/
     margin: 10px;
     opacity: 0;
     transform: scale(0.5);
@@ -79,19 +79,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     border: 5px solid red;
   }
   #submitBtn {
-  display: block;
-  margin: 20px auto;
-  background-image: url('images/Next Icon.png');
-  width: 50px; /* Adjust size as needed */
-  height: 50px; /* Adjust size as needed */
-  background-size: cover;
-  border: none;
-  cursor: pointer;
-  position: absolute;
-  top:75%;
-  left:50%;
-  background-color: transparent;
+ display: block;
+    margin: 20px auto;
+    width: 180px;
+    height: 50px;
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: 2%;
+    right: 3%;
+    background-color: black;
+    border-radius: 30px;
+    color: white;
+    font-size: 30px;
 
+}
+
+.addbutton{
+width: 50px;
+    height: 50px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    display: block;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 45px;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: auto;
 }
 @keyframes rubberBand {
     from {
@@ -112,19 +130,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </div>
 
 <div class="hobbies-section">
-  <img src='images/Group 8251.png' alt='gardening' style="animation: rubberBand 1s 0.5s forwards;" class='hobby'>
-<img src='images/Group 8252.png' alt='playing-guitar' style="animation: rubberBand 1s 1.0s forwards;" class='hobby'>
-<img src='images/Group 8253.png' alt='reading' style="animation: rubberBand 1s 1.5s forwards;" class='hobby'>
-<img src='images/Group 8254.png' alt='cooking' style="animation: rubberBand 1s 2.0s forwards;" class='hobby'>
-<img src='images/Group 8255.png' alt='photography' style="animation: rubberBand 1s 2.5s forwards;" class='hobby'>
-<img src='images/Group 8256.png' alt='fishing' style="animation: rubberBand 1s 3.0s forwards;" class='hobby'>
-<img src='images/Group 8257.png' alt='skate-boarding' style="animation: rubberBand 1s 3.5s forwards;" class='hobby'>
-<img src='images/Group 8258.png' alt='painting' style="animation: rubberBand 1s 4.0s forwards;" class='hobby'>
-<img src='images/Group 8259.png' alt='music' style="animation: rubberBand 1s 4.5s forwards;" class='hobby'>
-<img src='images/Group 8250.png' alt='skating' style="animation: rubberBand 1s 5.0s forwards;" class='hobby'>
+  <img src='images/kids-hobbies/Gardening.png' alt='gardening' style="animation: rubberBand 1s 0.5s forwards;" class='hobby'>
+<img src='images/kids-hobbies/Playing Music.png' alt='playing-guitar' style="animation: rubberBand 1s 1.0s forwards;" class='hobby'>
+<img src='images/kids-hobbies/Reading.png' alt='reading' style="animation: rubberBand 1s 1.5s forwards;" class='hobby'>
+<img src='images/kids-hobbies/Cooking.png' alt='cooking' style="animation: rubberBand 1s 2.0s forwards;" class='hobby'>
+<img src='images/kids-hobbies/Photography.png' alt='photography' style="animation: rubberBand 1s 2.5s forwards;" class='hobby'>
+<img src='images/kids-hobbies/Fishing.png' alt='fishing' style="animation: rubberBand 1s 3.0s forwards;" class='hobby'>
+<img src='images/kids-hobbies/Skateboarding.png' alt='skate-boarding' style="animation: rubberBand 1s 3.5s forwards;" class='hobby'>
+<img src='images/kids-hobbies/Painting.png' alt='painting' style="animation: rubberBand 1s 4.0s forwards;" class='hobby'>
+<img src='images/kids-hobbies/Dancing.png' alt='dancing' style="animation: rubberBand 1s 4.5s forwards;" class='hobby'>
+<img src='images/kids-hobbies/Skating.png' alt='skating' style="animation: rubberBand 1s 5.0s forwards;" class='hobby'>
 </div>
-<button id="submitBtn" onclick="submitForm()"></button>
-<a href="kids-information.php">Add More Kids</a>
+<button id="submitBtn" onclick="submitForm()">next</button>
+<a class="addbutton" href="kids-information.php">+</a>
 
 <script>
 

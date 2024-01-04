@@ -50,7 +50,8 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css
       title: "Want to add more kids ?",
       showDenyButton: false,
       showCancelButton: true,
-      confirmButtonText: "Add",
+      cancelButtonText:"No , Thank you",
+      confirmButtonText: "Add More",
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {

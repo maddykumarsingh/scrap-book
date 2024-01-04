@@ -3,13 +3,18 @@ include_once "database.php";
 session_start();
 
 if (!isset($_SESSION["id"])) {
-    header("Location:index.php");
+    header("Location: index.php");
 }
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $birthdate = $_POST["dob"];
-  $_SESSION['dob'] =  $birthdate;
+  $_SESSION['dob'] = $birthdate;
+
+  if (!isValidDate($birthdate)) {
+    echo "Please enter a valid date of birth.";
+    return;
+  }
 
   $id = $conn->real_escape_string($_SESSION["id"]);
   $birthdate = $conn->real_escape_string($birthdate);
@@ -17,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $sql = "UPDATE person SET birthdate = '$birthdate' WHERE person_id = '$id'";
 
   if ($conn->query($sql) === TRUE) {
-       header('Location:your-zodaic.php');
+       header('Location: your-zodaic.php');
   } else {
      
   }
@@ -25,6 +30,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $conn->close();
 }
 
+function isValidDate($date) {
+  return (bool)strtotime($date);
+}
 
 ?>
 
@@ -48,11 +56,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 @keyframes flyInFromBottomRight {
   from {
-    transform: translate(100%, 100%);
+    transform: translate(100%);
     opacity: 0;
   }
   to {
-    transform: translate(0, 0);
+    transform: translate(0);
     opacity: 1;
   }
 }
@@ -113,7 +121,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   top: 18%;
   left: 85%;
   background-color: transparent;
-
+z-index:100;
 }
 
 body {
@@ -157,10 +165,125 @@ input[type=date] {
     border-radius: 5px;
     text-align: center;
 }
+
+
+
+
+.pageContainer{
+    height: 100%;
+    margin: 0;
+   width:100%;
+}
+.topContent{
+       width: 100%;
+    overflow: hidden;
+    display: block;
+    float: left;
+       
+}
+
+.topImage{
+    float:left;
+    
+      position: relative;
+
+  background-repeat: no-repeat;
+  animation: flyInFromTopLeft 2s forwards;
+      width: 50%;
+}
+
+.topImage img{
+width:100%;
+max-width:100%;
+}
+
+ .logo-page{
+float: right;
+text-align:left;
+}
+
+.logo-page img{
+          float: right;
+    text-align: right;
+    width: 100px;
+    margin: 10px;
+ 
+}
+.bottomSection{
+    position: absolute;
+    width: 100%;
+    display: block;
+    text-align: end;
+    overflow: hidden;
+    bottom: 0;
+     animation: flyInFromBottomRight 2s forwards;
+}
+
+.bottomSection img{
+    width: 50%;
+    max-width: 100%;
+}
+
+h2.h2Class{
+   text-align: center;
+   font-family:'PF Handbook Pro Regular';
+   font-weight:normal;
+   font-size:42px; 
+   
+}
+p.pClass{
+    text-align: center;
+    font-family:'PF Handbook Pro Regular';
+    font-weight:normal;
+    font-size:24px;
+    width: 80%;
+    left: 10%;
+    position: absolute;
+    margin: 0;
+}
+
+label.labelClass{
+    text-align: center;
+    margin-left: 50px;
+    font-family:'PF Handbook Pro Regular';
+    font-weight:normal;
+    font-size:32px;
+}
+ @media screen and (max-width: 1000px) {
+           #content {
+    position: absolute;
+    top: 10%;
+    left: 40%;
+     width: 250px; /* Adjust size as needed */
+  height: 250px; /* Adjust size as needed */
+}
+
+#submitBtn {
+  margin: 10px auto;
+  top:71%;
+}  
+
+label.labelClass{
+     margin-left: 20px;
+    font-size:22px;
+}
+
+input[type=date] {
+    display: block;
+    margin: 20px auto;
+}
+  
+        }
+        
+        
+        
+        
 </style>
 </head>
 <body>
-<div id="side1Image"></div>
+
+
+<!-- <div id="side1Image"></div>
 <div id="side2Image"></div>
 <div id="logo"></div>
 <div id="content">
@@ -175,6 +298,50 @@ input[type=date] {
         <img id="cake" src="images/Cake.png" alt="Birthday Cake" style="width:150px; height:auto;">
     </div>
 </div>
+-->
+
+
+
+<div class="pageContainer">
+    <div class="topContent">
+    <div class="topImage">
+        <img src="images/side2.png" />
+    </div>
+    
+    <div class="logo-page">
+        <img src="images/logo.png" />
+    </div>
+    </div>
+    
+    
+    <div class="centerSection">
+<div id="content">
+    <div>
+    <form method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+        <label for="dob"  class="labelClass">Enter your date of birth</label><br/>
+        <input type="date" id="dob" name="dob" required onchange="calculateAge()">
+        <button type="submit" id="submitBtn" ></button>
+    </form>
+    </div>
+    <div id="cakeContainer">
+        <img id="cake" src="images/Cake.png" alt="Birthday Cake" style="width:150px; height:auto;">
+    </div>
+</div>
+
+
+    </div>
+    
+    
+    <div class="bottomSection">
+          <img src="images/side1.png" />
+    </div>
+    
+    
+</div>
+
+
+
+
 <script>
 function calculateAge() {
     var dob = document.getElementById('dob').value;
@@ -206,10 +373,7 @@ function displayCakeAndCandles(age) {
     }
 }
 
-function redirectToNextPage() {
-    // Redirect to the next page (replace 'nextPage.html' with the actual URL)
-    window.location.href = 'step5.html';
-}
+
 </script>
 <?php include_once 'orientation-check.php'; ?>
 </body>

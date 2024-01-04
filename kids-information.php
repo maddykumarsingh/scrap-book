@@ -85,12 +85,51 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
 
-  <form  class="content" method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>"> 
-    <input type="text" name="kid_name" class="input-field" placeholder="Your Kid's Name">
-    <input type="number" name="kid_age" class="input-field" placeholder="Age">
-    <button id="nextButton" onclick="goToNextPage()">Next</button>
+  <form id="form" class="content" method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>"> 
+    <input type="text" name="kid_name" class="input-field" placeholder="Your Kid's Name" id="kidName">
+    <input type="number" name="kid_age" class="input-field" placeholder="Age" id="kidAge">
+    <button type="button" id="nextButton" onclick="goToNextPage()">Next</button>
     <a style="padding:5px 10px; margin:10px ; background:white; border-radius:10px;" href="hobbies.php">Skip</a>
   </form>
+
+
+
+  <script>
+    function validateForm() {
+      var kidName = document.getElementById('kidName').value;
+      var kidAge = document.getElementById('kidAge').value;
+
+      // Validate Kid's Name
+      if (kidName.trim() === "") {
+        Swal.fire({
+            title: 'Invalid Kid Name',
+            text: 'Please enter valid kid name.',
+            icon: 'error',
+            confirmButtonText: 'OK',
+        });
+        return false;
+      }
+
+      // Validate Age
+      if (isNaN(kidAge) || kidAge <= 0) {
+        Swal.fire({
+            title: 'Invalid Kid Age',
+            text: 'Please enter a valid age for your Kid.',
+            icon: 'error',
+            confirmButtonText: 'OK',
+        });
+        return false;
+      }
+
+      return true;
+    }
+
+   function goToNextPage(){
+     if( validateForm()){
+        document.getElementById('form').submit();
+     }
+   }
+  </script>
 
   <?php include_once 'orientation-check.php'; ?>
 

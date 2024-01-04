@@ -140,7 +140,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css
         <img src="images/Swimming.png"  alt="Hobby">
       </div>
       <div class="hobby-image" onclick="selectHobby(this , 'tv')" style="animation-delay: 0.6s;">
-        <img src="images/TV.png"  alt="Hobby">
+        <img src="images/Netflixing.png"  alt="Hobby">
       </div>
       <div class="hobby-image" onclick="selectHobby(this , 'reading')" style="animation-delay: 1.2s;">
         <img src="images/Reading.png"  alt="Hobby">
@@ -152,23 +152,21 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css
         <img src="images/Photography.png"  alt="Hobby">
       </div>
       <div class="hobby-image" onclick="selectHobby(this ,'playing-guitar')" style="animation-delay: 2.1s;">
-        <img src="images/Playing Guitar.png"  alt="Hobby">
+        <img src="images/Playing Music.png"  alt="Hobby">
       </div>
-      <div class="hobby-image" onclick="selectHobby(this ,'poker')" style="animation-delay: 2.4s;">
-        <img src="images/Poker.png"  alt="Hobby">
-      </div>
+      
 
       <div class="hobby-image" onclick="selectHobby(this , 'listening-music')" style="animation-delay: 2.7s;">
-        <img src="images/Listening Music.png"  alt="Hobby">
+        <img src="images/Listening to Music.png"  alt="Hobby">
       </div>
-      <div class="hobby-image" onclick="selectHobby(this ,'kneading')" style="animation-delay: 3.0s;">
-        <img src="images/Kneading.png"  alt="Hobby">
+      <div class="hobby-image" onclick="selectHobby(this ,'knitting')" style="animation-delay: 3.0s;">
+        <img src="images/Knitting.png"  alt="Hobby">
       </div>
       <div class="hobby-image" onclick="selectHobby(this,'gaming')" style="animation-delay: 3.3s;">
         <img src="images/Gaming.png"  alt="Hobby">
       </div>
       <div class="hobby-image" onclick="selectHobby(this,'gardening')" style="animation-delay: 3.6s;">
-        <img src="images/Gardening.png"  alt="Hobby">
+        <img src="images/Planting.png"  alt="Hobby">
       </div>
       <div class="hobby-image" onclick="selectHobby(this ,'fishing')" style="animation-delay: 3.9s;">
         <img src="images/Fishing.png"  alt="Hobby">
@@ -242,10 +240,12 @@ function selectHobby(element , hobby) {
 }
 
 function submitForm(){
+  
   var dynamicForm = document.createElement("form");
   dynamicForm.id = "hobbiesForm";
   dynamicForm.method = "post";
   dynamicForm.action = "hobbies.php";
+
 
   // Attach hobbies to the form as a hidden input
   var hobbiesInput = document.createElement("input");

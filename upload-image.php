@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     // Check if files were uploaded
-    if (isset($_FILES['files'])) {
+    if (!empty($_FILES['files']['name'][0])) {
         $errors = [];
 
         // Get the person's ID from the session (replace with your actual session variable)
@@ -57,6 +57,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
            header("Location:add-more-kid.php");
         }
+    }
+    else {
+      // No files were uploaded, redirect to add more kid
+      header("Location:add-more-kid.php");
+    
     }
 
     $conn->close();

@@ -40,7 +40,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css
 
     <script>
         Swal.fire({
-      title: "Thank you !",
+      title: "Thank you for sharing your insights with us!",
       showDenyButton: false,
       showCancelButton: false,
       confirmButtonText: "Ok",

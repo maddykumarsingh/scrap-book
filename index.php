@@ -11,6 +11,8 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
+   <?php include_once "metatag" ?>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 <style>
 @keyframes logoAnimation {
   0% {

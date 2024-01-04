@@ -6,7 +6,6 @@ include "database.php";
 // Check if the user's ID is stored in the session
 if (!isset($_SESSION["id"])) {
     header("Location: index.php");
-    exit();
 }
 
 
@@ -79,13 +78,14 @@ if (!isset($_SESSION["id"])) {
 
 }
 #logo {
-  background-image: url('images/ABC_Red.jpg');
-  position: absolute;
-  top: 25px;
-  right: 25px;
-  width: 330px; /* Adjust size as needed */
-  height: 70px; /* Adjust size as needed */
-  background-size: cover;
+  background-image: url('images/logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 120px; /* Adjust size as needed */
+    height: 120px;
+    position: absolute;
+    top: 1%;
+    right: 1%;
 }
 </style>
 </head>
@@ -104,7 +104,7 @@ if (!isset($_SESSION["id"])) {
 function fetchAndDisplayMeaning() {
     const name = '<?=$kidName?>'; // You can dynamically get the name from the server or user input
 
-    fetch(`https://data-enrichment.myofficeengagements.com//scrap-book/name-meaning.php?name=${name}`)
+    fetch(`https://data-enrichment.myofficeengagements.com/name-meaning.php?name=${name}`)
         .then(response => response.text())
         .then(data => {
             // Update the 'meaning' element with the fetched data

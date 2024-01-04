@@ -14,6 +14,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"]; // New field
     $anniversaryDate = $_POST["anniversary_date"]; //
 
+
+    // Validate email
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      echo "<span style='color:red;'>Invalid email format</span>";
+    
+    }
+
+  // Validate anniversary date
+  else if (!isValidDate($anniversaryDate)) {
+      echo "<span style='color:red;'>Required anniversary date </span>";
+  }
+
+  else {
     $id = $conn->real_escape_string($_SESSION["id"]);
     $email = $conn->real_escape_string($email); // New field
 
@@ -26,6 +39,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $conn->close();
+  }
+
+
+
+   
+}
+
+function isValidDate($date)
+{
+    $dateFormat = 'Y-m-d'; // Define the expected date format
+    $dateTime = DateTime::createFromFormat($dateFormat, $date);
+    return $dateTime && $dateTime->format($dateFormat) === $date;
 }
 ?>
 
@@ -147,8 +172,8 @@ href="fonts/style.css"/>
 <form id='form' method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
 <div class="container">
   <div class="left-section">
-    <input type="date" name="anniversary_date" class="date-input" placeholder="Enter your Anniversary Date">
-    <input type="email" name="email" class="date-input" placeholder="Enter your email id for Notification">
+    <input type="date" name="anniversary_date" class="date-input" placeholder="Enter your Anniversary Date"  id="anniversary_date">
+    <input type="email" name="email" class="date-input"  placeholder="Enter your email id for Notification" id="email">
     <img src="images/reminder.png" alt="Reminder" style="width: 90%; max-width: 600px;">
     <button type="button" id="submitBtn" onclick="setReminder()"></button>
   </div>
@@ -187,12 +212,54 @@ href="fonts/style.css"/>
   }
 
 
+  function validateEmail(email) {
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+  function validateDate(date) {
+      var dateRegex = /^\d{4}-\d{2}-\d{2}$/;
+      return dateRegex.test(date);
+  }
+
+
+  function validateForm() {
+            var email = document.getElementById('email').value;
+            var anniversaryDate = document.getElementById('anniversary_date').value;
+
+            // Validate email
+            if (!validateEmail(email)) {
+              Swal.fire({
+            title: 'Invalid Email',
+            text: 'Please enter valid email.',
+            icon: 'warning',
+            confirmButtonText: 'OK',
+        });
+                return false;
+            }
+
+            // Validate anniversary date
+            if (!validateDate(anniversaryDate)) {
+              Swal.fire({
+            title: 'Invalid Anniversary Date',
+            text: 'Please select valid anniversary date.',
+            icon: 'warning',
+            confirmButtonText: 'OK',
+        });
+                return false;
+            }
+
+            return true;
+  }
+
   function setReminder(){
-    document.getElementById('myModal').style.display='block';
-    const form = document.getElementById('form');
-    setTimeout(() => {
-      form.submit();
-    }, 2000);
+    if( validateForm()){
+      document.getElementById('myModal').style.display='block';
+      const form = document.getElementById('form');
+      setTimeout(() => {
+        form.submit();
+      }, 2000);
+    }
 
   }
 

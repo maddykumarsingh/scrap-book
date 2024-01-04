@@ -12,6 +12,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $first_name = $conn->real_escape_string($first_name);
     $last_name = $conn->real_escape_string($last_name);
 
+
+
+    // PHP validation
+    if (empty($first_name) || empty($last_name)) {
+        echo "Please enter both first and last names.";
+        return;
+    }
+
     $sql = "INSERT INTO person (first_name, last_name) VALUES ('$first_name', '$last_name')";
 
     if ($conn->query($sql) === TRUE) {
@@ -49,11 +57,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 @keyframes flyInFromBottomRight {
   from {
-    transform: translate(100%, 100%);
+    transform: translateY(100%);
     opacity: 0;
   }
   to {
-    transform: translate(0, 0);
+    transform: translateY(0);
     opacity: 1;
   }
 }
@@ -65,7 +73,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   right: 0;
   width: 60%; /* Adjust size as needed */
   height: 50%; /* Adjust size as needed */
-  background-size: cover;
+    background-size: contain;
+  background-repeat: no-repeat;
   animation: flyInFromBottomRight 2s forwards;
   margin-bottom: -2%;
 }
@@ -77,18 +86,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   left: 0;
   width: 60%; /* Adjust size as needed */
   height: 50%; /* Adjust size as needed */
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   animation: flyInFromTopLeft 2s forwards;
 }
 
 #logo {
-  background-image: url('images/ABC_Red.jpg');
+ /* background-image: url('images/ABC_Red.jpg');*/
+   background-image: url('images/logo.png');
   position: absolute;
-  top: 25px;
-  right: 25px;
-  width: 330px; /* Adjust size as needed */
-  height: 70px; /* Adjust size as needed */
-  background-size: cover;
+    top: 25px;
+    right: 44px;
+    width: 140px; 
+    height: 140px;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 input[type=text] {
@@ -121,41 +133,214 @@ body {
   overflow: hidden;
   background-image: url('images/white-background-with-spiral-pattern-center.png');
   background-size: cover;
+  width:100%;
 }
 
 #content {
   position: absolute;
   top:40%;
   left:40%;
+      z-index: 100;
 }
+
+.entername{
+        font-size: 30px;
+
+    
+}
+
+.entername p{
+    margin:0px;
+        font-family: sans-serif;
+}
+
+
+/* Media query for screens below 800px width */
+@media screen and (max-width: 900px) and (max-height: 500px) and (orientation: landscape) {
+ .entername{
+        font-size: 20px;
+}
+}
+
+
+
+.pageContainer{
+    height: 100%;
+    margin: 0;
+   width:100%;
+   position:relativ;
+}
+.topContent{
+       width: 100%;
+    overflow: hidden;
+    display: block;
+    float: left;
+       
+}
+
+.topImage{
+    float:left;
+    
+      position: relative;
+
+  background-repeat: no-repeat;
+  animation: flyInFromTopLeft 2s forwards;
+      width: 40%;
+}
+
+.topImage img{
+width:100%;
+max-width:100%;
+}
+
+ .logo-page{
+float: right;
+text-align:left;
+}
+
+.logo-page img{
+          float: right;
+    text-align: right;
+    width: 80px;
+    margin: 10px;
+ 
+}
+
+
+.bottomSection{
+    clear:both;
+    position: absolute;
+     width: 100%;
+     float:right;
+    display: block;
+    text-align: end;
+    overflow: hidden;
+    bottom: 0;
+    right:0;
+     animation: flyInFromBottomRight 2s forwards;
+}
+
+.bottomSection img{
+  width:40%;
+}
+
+
+ @media screen and (max-width: 1000px) {
+           #content {
+    position: absolute;
+    top: 26%;
+    left: 40%;
+}
+
+.bottomSection{
+    position: realtive;
+   
+   
+}
+
+
+        }
+        
+        
+        
+/* .logo-page{
+        float: right;
+    position: relative;
+    right: 0;
+        width: 50%;
+}
+
+.logo-page img{
+          float: right;
+    text-align: right;
+    width: 150px;
+    margin: 10px;
+ 
+}
+
+.bottomSection{
+       position: absolute;
+    bottom: 0px;
+    animation: flyInFromBottomRight 2s forwards;
+    right: 0;
+    width: 100%;
+    float: right;
+    width: 50%;
+}
+
+.bottomSection img{
+        float: right;
+        width:100%;
+max-width:100%;
+} */
 </style>
 </head>
 <body>
 
-<div id="side1Image"></div>
+<!--<div id="side1Image"></div>
 <div id="side2Image"></div>
-<div id="logo"></div>
-<div id="content">
+<div id="logo"></div> -->
+
+<div class="pageContainer">
+    <div class="topContent">
+    <div class="topImage">
+        <img src="images/side2.png" />
+    </div>
+    
+    <div class="logo-page">
+        <img src="images/logo.png" />
+    </div>
+    </div>
+    
+    
+    <div class="centerSection">
+         <div id="content">
+    
+   <div class="entername"> <p>Enter your Name</p> </div>
 <form id='form' method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
         <input type="text" name="first_name" required id="firstName" placeholder="First Name">
         <input type="text" id="lastName" name="last_name" required placeholder="Last Name">
 
-        <!-- <input  id="submitBtn"  type="submit" > -->
+       <!--  <input  id="submitBtn"  type="submit" >  -->
         <a  href="#"  id="submitBtn"></a>
  </form>
  
  
 
 </div>
+    </div>
+    
+    
+    <div class="bottomSection">
+          <img src="images/side1.png" />
+    </div>
+    
+    
+</div>
+
+
 
 
 <script>
    const submitButton = document.getElementById('submitBtn');
    submitButton.addEventListener('click', () => {
      const form = document.getElementById('form');
-     form.submit();
+     const firstNameInput = document.getElementById('firstName');
+     const lastNameInput = document.getElementById('lastName');
+
+     if (firstNameInput.value.trim() === '' || lastNameInput.value.trim() === '') {
+        Swal.fire({
+            title: 'Validation Error',
+            text: 'Please enter both First and Last names.',
+            icon: 'error',
+            confirmButtonText: 'OK',
+        });
+        event.preventDefault(); // Prevent form submission
+     }
+     else form.submit();
    })
 </script>
+
 <?php include_once 'orientation-check.php'; ?>
 </body>
 </html>
