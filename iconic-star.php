@@ -5,7 +5,6 @@ session_start();
 // Check if the user's ID is stored in the session
 if (!isset($_SESSION["id"])) {
     header("Location: index.php");
-    exit();
 }
 
 // Check if the form is submitted
@@ -34,9 +33,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Page</title>
+    <meta name="description" content="ABSLI data enrichment">
+    <meta name="keywords" content="keyword1, keyword2, keyword3">
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title> ABSLI | Data Enrichment</title>
+ <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="fonts/style.css"/>
     <style>
         body, html {
@@ -55,12 +60,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             height: 100%;
         }
 
-        .input-area {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
+         .input-area {
+              position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    height: 66%;
+    width: 100%;
+    padding-top: 60%;
         }
 
         .input-field {
@@ -92,17 +99,68 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             cursor: pointer;
         }
 
-        #submitBtn {
-            display: block;
-            margin: 20px auto;
-            background-image: url('images/Icon\ awesome-chevron-circle-right.png');
-            width: 50px; /* Adjust size as needed */
-            height: 50px; /* Adjust size as needed */
-            background-size: cover;
-            border: none;
-            cursor: pointer;
-            background-color: transparent;
+       #submitBtn {
+     display: block;
+    margin: 20px auto;
+    width: 180px;
+    height: 50px;
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: 2%;
+    right: 3%;
+    background-color: black;
+    border-radius: 30px;
+    color: white;
+    font-size: 32px;
+    line-height: 48px;
+    text-decoration: none;
+    font-family: sans-serif;
+    text-align: center;
+    z-index:10;
+}
+        
+        
+             h2.classh2{
+     font-size: 50px; font-weight:bold;
+  }
+  @media screen and (max-width: 1000px) {
+     h2.classh2{
+     font-size:22px;
+  }
+  
+     #submitBtn {
+     display: block;
+    margin: 20px auto;
+    width: 120px;
+    height: 30px;
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: 2%;
+    right: 3%;
+    background-color: black;
+    border-radius: 20px;
+    color: white;
+    font-size: 22px;
+    line-height: 28px;
+    text-decoration: none;
+    font-family: sans-serif;
+    text-align: center;
+    z-index:10;
+}
+
+ .input-area {
+              position: absolute;
+  
+    padding-top: 50%;
         }
+        
+       
+ }
+ 
     </style>
 </head>
 <body onload="addInputField()">
@@ -112,12 +170,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form  method="post" action="<?php echo $_SERVER["PHP_SELF"];?>">
             <div id="inputContainer">
                 <!-- Initial input group -->
-                <h2 style="font-size: 50px; font-weight:bold;">Who's your favorite iconic star?</h2>
+                <h2 class="classh2">Who's your favorite iconic star?</h2>
                 <div class="input-group">
                     <button type="button" class="add-btn" onclick="addInputField()">+ Add new Item</button>
                 </div>
             </div>
-            <button type="submit" id="submitBtn"></button>
+            <button type="submit" id="submitBtn">next</button>
         </form>
     </div>
 </div>

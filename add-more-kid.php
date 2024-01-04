@@ -33,12 +33,17 @@ body {
 
 
 </style>
-<script src="
-https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js
-"></script>
-<link href="
-https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css
-" rel="stylesheet">
+<script src="./dist/js/sweetalert.min.js"></script>
+<link href="./dist/css/sweetalert.min.css" rel="stylesheet">
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ABSLI data enrichment">
+    <meta name="keywords" content="keyword1, keyword2, keyword3">
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title> ABSLI | Data Enrichment</title>
+ <link rel="icon" href="favicon.ico" type="image/x-icon">
 
 </head>
 <body>

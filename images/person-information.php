@@ -20,24 +20,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         return;
     }
 
-    $sql = "INSERT INTO person (first_name, last_name) VALUES (?, ?)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ss", $first_name, $last_name);
+    $sql = "INSERT INTO person (first_name, last_name) VALUES ('$first_name', '$last_name')";
 
-    if ($stmt->execute()) {
+    if ($conn->query($sql) === TRUE) {
         // Retrieve the id of the inserted record
-        $id = $stmt->insert_id;
+        $id = $conn->insert_id;
 
         // Store the id in the session
         $_SESSION["id"] = $id;
 
         $conn->close();
-        $stmt->close();
 
         header("Location:your-name-meaning.php");
         exit();
     } else {
-        echo "Error: ". $stmt->error;
+        echo "Error: " . $sql . "<br>" . $conn->error;
     }
 
     $conn->close();
@@ -46,15 +43,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ABSLI data enrichment">
-    <meta name="keywords" content="keyword1, keyword2, keyword3">
-    <meta name="author" content="Your Name">
-    <meta name="robots" content="index, follow">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
- <title> ABSLI | Data Enrichment</title>
- <link rel="icon" href="favicon.ico" type="image/x-icon">
 <style>
 @keyframes flyInFromTopLeft {
   from {

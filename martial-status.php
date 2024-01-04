@@ -6,7 +6,6 @@ session_start();
 
 if (!isset($_SESSION["id"])) {
     header("Location: index.php");
-    exit();
 }
 
 
@@ -43,9 +42,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Status Selection</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ABSLI data enrichment">
+    <meta name="keywords" content="keyword1, keyword2, keyword3">
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title> ABSLI | Data Enrichment</title>
+ <link rel="icon" href="favicon.ico" type="image/x-icon">
 <style>
 @keyframes fadeIn {
   from {
@@ -64,11 +68,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   }
   #logo {
-    background-image: url('images/ABC_Red.jpg');
-    background-size: cover;
-    width: 330px; /* Adjust size as needed */
-    height: 70px;
-    float: right; /* Align the logo to the top right corner */
+       background-image: url(images/logo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 120px;
+    height: 120px;
+    float: right;
     margin: 30px;
     clear: both;
   }
@@ -96,6 +101,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   #married {
     background-image: url('images/Married_White.png');
   }
+  
+   @media screen and (max-width: 1000px) {
+       
+       
+        #logo {
+    width: 80px;
+    height: 80px;
+    margin: 20px;
+  }
+  .status-button {
+      position:relative;
+      top:-80px;
+    border: none;
+    width: 231px; /* Adjust as needed */
+    height: 59px; /* Adjust as needed */
+    margin: 10px auto;
+  }
+   #single {
+    background-image: url('images/Single White.png');
+     background-size: cover;
+    background-repeat: no-repeat;
+  }
+  #engaged {
+    background-image: url('images/Engaged_White.png');
+     background-size: cover;
+    background-repeat: no-repeat;
+  }
+  #married {
+    background-image: url('images/Married_White.png');
+     background-size: cover;
+    background-repeat: no-repeat;
+  }
+   }
 </style>
 </head>
 <body>

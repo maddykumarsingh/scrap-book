@@ -39,8 +39,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kids Hobbies</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ABSLI data enrichment">
+    <meta name="keywords" content="keyword1, keyword2, keyword3">
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title> ABSLI | Data Enrichment</title>
+ <link rel="icon" href="favicon.ico" type="image/x-icon">
 <style>
   body, html {
     height: 100%;
@@ -110,6 +116,7 @@ width: 50px;
     right: 0;
     left: 0;
     margin: auto;
+    cursor: pointer;
 }
 @keyframes rubberBand {
     from {
@@ -126,7 +133,7 @@ width: 50px;
 <body>
 
 <div class="header">
-  Select your kids hobbies & upload pictures
+  Select your kids hobbies
 </div>
 
 <div class="hobbies-section">
@@ -142,11 +149,33 @@ width: 50px;
 <img src='images/kids-hobbies/Skating.png' alt='skating' style="animation: rubberBand 1s 5.0s forwards;" class='hobby'>
 </div>
 <button id="submitBtn" onclick="submitForm()">next</button>
-<a class="addbutton" href="kids-information.php">+</a>
+<button class="addbutton" onclick="openModal()" >+</button>
 
 <script>
 
  var hobbies = [];
+
+ function openModal() {
+  // Use SweetAlert to get the "others" hobby input
+  Swal.fire({
+    title: 'Specify Hobby',
+    input: 'text',
+    inputPlaceholder: 'Enter your hobby',
+    showCancelButton: true,
+    confirmButtonText: 'Submit',
+    cancelButtonText: 'Cancel',
+    inputValidator: (value) => {
+      if (!value) {
+        return 'You need to enter something!';
+      }
+    }
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // Push the entered value to the hobbies array
+      hobbies.push(result.value.toLowerCase());
+    }
+  });
+}
 
   // Function to toggle selection on hobby images
   function toggleSelection(event) {

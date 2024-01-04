@@ -34,8 +34,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wedding Destinations</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ABSLI data enrichment">
+    <meta name="keywords" content="keyword1, keyword2, keyword3">
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title> ABSLI | Data Enrichment</title>
+ <link rel="icon" href="favicon.ico" type="image/x-icon">
 <style>
   body, html {
     height: 100%;
@@ -54,30 +60,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     clear: both;
   }
   .options-section {
-    height: 80%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+       height: auto;
+    display: block;
     padding: 2%;
+    width: 84%;
+    overflow: hidden;
+    text-align: center;
+    margin: auto;
   }
   .option-button {
-    background: none;
+      background: none;
     border: none;
     cursor: pointer;
     transition: transform 0.3s ease;
-    margin: 10px;
+    margin: 20px;
+    width: 180px;
   }
   .option-button img {
-    width: auto; /* Adjust the size as needed */
-    height: 240px; /* Fixed height to maintain aspect ratio */
-    margin: 10px;
+      width: 100%;
+    max-width: 100%;
+    height: auto;
   }
   #logo {
-    background-image: url('images/ABC_Red.jpg');
-    background-size: cover;
-    width: 330px; /* Adjust size as needed */
-    height: 70px;
+    background-image: url('images/logo.png');
+    background-size: contain;
+    background-repeat:no-repeat;
+    width: 120px; /* Adjust size as needed */
+    height: 120px;
     margin: 5px;
     clear: both;
     float: right;
@@ -98,13 +107,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   cursor: pointer;
   background-color: transparent;
 }
+
+img.imgclass{
+    max-width: 60%; width:60%; height: auto;
+}
+
+ @media screen and (max-width: 1000px) {
+     
+     
+     img.imgclass{
+  position:relative;
+  top:-80px;
+}
+.option-button {
+    
+    margin: 10px;
+    width: 110px;
+  }
+ .options-section {
+     position:relative;
+  top:-80px;
+ }
+ }
 </style>
 </head>
 <body>
   <div id="logo"></div>
 
 <div class="header-section">
-  <img src="images/Popular wedding destinations chosen by Indians in 2023.png" alt="Wedding Destinations Header" style="max-width: 80%; height: auto;">
+  <img src="images/Popular wedding destinations chosen by Indians in 2023.png" alt="Wedding Destinations Header" class="imgclass" />
 </div>
 
 <div class="options-section">

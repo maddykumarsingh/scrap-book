@@ -4,7 +4,6 @@ session_start();
 
 if (!isset($_SESSION["id"])) {
     header("Location: index.php");
-    exit();
 }
 
 
@@ -36,6 +35,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <link rel="stylesheet" type="text/css"
     href="fonts/style.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ABSLI data enrichment">
+    <meta name="keywords" content="keyword1, keyword2, keyword3">
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title> ABSLI | Data Enrichment</title>
+ <link rel="icon" href="favicon.ico" type="image/x-icon">
 <style>
 @keyframes flyInFromTopLeft {
   from {
@@ -158,11 +165,123 @@ body {
   left:45%;
   }
   
+  
+
+.pageContainer{
+    height: 100%;
+    margin: 0;
+   width:100%;
+}
+.topContent{
+       width: 100%;
+    overflow: hidden;
+    display: block;
+    float: left;
+       
+}
+
+.topImage{
+    float:left;
+    
+      position: relative;
+
+  background-repeat: no-repeat;
+  animation: flyInFromTopLeft 2s forwards;
+      width: 50%;
+}
+
+.topImage img{
+width:100%;
+max-width:100%;
+}
+
+ .logo-page{
+float: right;
+text-align:left;
+}
+
+.logo-page img{
+          float: right;
+    text-align: right;
+    width: 100px;
+    margin: 10px;
+ 
+}
+.bottomSection{
+    position: absolute;
+    width: 100%;
+    display: block;
+    text-align: end;
+    overflow: hidden;
+    bottom: 0;
+     animation: flyInFromBottomRight 2s forwards;
+}
+
+.bottomSection img{
+    width: 50%;
+    max-width: 100%;
+}
+
+h2.h2Class{
+   text-align: center;
+   font-family:'PF Handbook Pro Regular';
+   font-weight:normal;
+   font-size:42px; 
+   
+}
+p.pClass{
+    text-align: center;
+    font-family:'PF Handbook Pro Regular';
+    font-weight:normal;
+    font-size:24px;
+    width: 80%;
+    left: 10%;
+    position: absolute;
+    margin: 0;
+}
+ @media screen and (max-width: 1000px) {
+           #content {
+    position: absolute;
+    top: 40%;
+   margin:auto;
+   left:0;
+   right:0;
+   text-align:center;
+     width: 450px; /* Adjust size as needed */
+  height: 250px; /* Adjust size as needed */
+}
+#name {
+    position: absolute;
+    top: 20%;
+    left: 0;
+    right: 0;
+        z-index: 10;
+}
+.gender-button {
+
+    width: 100px;
+    height: 100px;
+     position: relative;
+      z-index: 10;
+}
+
+#submitBtn {
+  margin: 10px auto;
+  top:71%;
+}  
+  
+        }
+        
+        
+        
+  
+  
 
 </style>
 </head>
 <body>
-    <div id="side1Image"></div>
+   
+   <!--  <div id="side1Image"></div>
     <div id="side2Image"></div>
     <div id="logo"></div>
     <h2 id="name" style="text-align: center;font-family:'PF Handbook Pro Bold';font-weight:normal;font-size:42px; color: red;">Select Gender</h2>
@@ -171,6 +290,45 @@ body {
         <button id="male" class="gender-button" onclick="selectGender('male')"></button>
         <button id="nonbinary" class="gender-button" onclick="selectGender('nonbinary')"></button>
     </div>
+    -->
+    
+    
+    
+<div class="pageContainer">
+    <div class="topContent">
+    <div class="topImage">
+        <img src="images/side2.png" />
+    </div>
+    
+    <div class="logo-page">
+        <img src="images/logo.png" />
+    </div>
+    </div>
+    
+    
+    <div class="centerSection">
+        
+         <h2 id="name" class="h2Class" >Select Gender</h2>
+ <div id="content">
+        <button id="female" class="gender-button" onclick="selectGender('female')"></button>
+        <button id="male" class="gender-button" onclick="selectGender('male')"></button>
+        <button id="nonbinary" class="gender-button" onclick="selectGender('nonbinary')"></button>
+    </div>
+
+
+    </div>
+    
+    
+    <div class="bottomSection">
+          <img src="images/side1.png" />
+    </div>
+    
+    
+</div>
+
+
+
+
     <script>
       let selectedGender = '';
       let parentNode = document.getElementById('content');

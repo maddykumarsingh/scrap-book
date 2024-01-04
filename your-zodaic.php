@@ -41,6 +41,15 @@ $conn->close();
 <head>
     <link rel="stylesheet" type="text/css"
     href="fonts/style.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ABSLI data enrichment">
+    <meta name="keywords" content="keyword1, keyword2, keyword3">
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title> ABSLI | Data Enrichment</title>
+ <link rel="icon" href="favicon.ico" type="image/x-icon">
 <style>
 @keyframes flyInFromTopLeft {
   from {
@@ -106,20 +115,26 @@ $conn->close();
 }
 
 
-#submitBtn {
-  display: block;
-  margin: 20px auto;
-  background-image: url('images/Icon awesome-chevron-circle-right.png');
-  width: 50px; /* Adjust size as needed */
-  height: 50px; /* Adjust size as needed */
-  background-size: cover;
-  border: none;
-  cursor: pointer;
-  position: absolute;
-  top:75%;
-  left:50%;
-  background-color: transparent;
-z-index:100;
+ #submitBtn {
+     display: block;
+    margin: 20px auto;
+    width: 180px;
+    height: 50px;
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: 2%;
+    right: 3%;
+    background-color: black;
+    border-radius: 30px;
+    color: white;
+    font-size: 32px;
+    line-height: 48px;
+    text-decoration: none;
+    font-family: sans-serif;
+    text-align: center;
+    z-index:10;
 }
 
 body {
@@ -181,7 +196,7 @@ text-align:left;
 .logo-page img{
           float: right;
     text-align: right;
-    width: 150px;
+    width: 100px;
     margin: 10px;
  
 }
@@ -271,11 +286,11 @@ p.pClass{
     <p id="meaning"  class="pClass"><?=$zodiacData['horoscopeText']?></p>
 </div>
 
-<a href="gender.php" id="submitBtn"></a>
+
 
 
     </div>
-    
+    <a href="gender.php" id="submitBtn">next</a>
     
     <div class="bottomSection">
           <img src="images/side1.png" />

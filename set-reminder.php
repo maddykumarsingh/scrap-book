@@ -61,8 +61,15 @@ function isValidDate($date)
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Reminder Page</title>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ABSLI data enrichment">
+    <meta name="keywords" content="keyword1, keyword2, keyword3">
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title> ABSLI | Data Enrichment</title>
+ <link rel="icon" href="favicon.ico" type="image/x-icon">
 <link rel="stylesheet" type="text/css"
 href="fonts/style.css"/>
 <style>
@@ -109,10 +116,11 @@ href="fonts/style.css"/>
     height: auto;
   }
   #logo {
-    background-image: url('images/ABC_Red.jpg');
-    background-size: cover;
-    width: 330px; /* Adjust size as needed */
-    height: 70px;
+    background-image: url('images/logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 120px; /* Adjust size as needed */
+    height: 120px;
     position: absolute;
     top: 1%;
     right: 1%;
@@ -122,18 +130,27 @@ href="fonts/style.css"/>
   opacity: 1; /* Firefox */
 }
 
-#submitBtn {
-  display: block;
-  margin: 20px auto;
-  background-image: url('images/Icon awesome-chevron-circle-right.png');
-  width: 50px; /* Adjust size as needed */
-  height: 50px; /* Adjust size as needed */
-  background-size: cover;
-  border: none;
-  cursor: pointer;
-  clear: both;
-  background-color: transparent;
-
+         
+ #submitBtn {
+     display: block;
+    margin: 20px auto;
+    width: 180px;
+    height: 50px;
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: 2%;
+    right: 3%;
+    background-color: black;
+    border-radius: 30px;
+    color: white;
+    font-size: 32px;
+    line-height: 48px;
+    text-decoration: none;
+    font-family: sans-serif;
+    text-align: center;
+    z-index:10;
 }
 .modal {
     display: none;
@@ -164,6 +181,45 @@ href="fonts/style.css"/>
     text-decoration: none;
     cursor: pointer;
   }
+  
+   @media screen and (max-width: 1000px) {
+     #logo {
+   
+    width: 60px; /* Adjust size as needed */
+    height: 60px;
+     }
+     .clock-gif {
+    width: 68%;
+    height: auto;
+}
+.date-input {
+    padding: 8px;
+    margin: 10px 0;
+    font-size:1em;
+}
+
+ #submitBtn {
+     display: block;
+    margin: 20px auto;
+    width: 120px;
+    height: 30px;
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: 2%;
+    right: 3%;
+    background-color: black;
+    border-radius: 20px;
+    color: white;
+    font-size: 22px;
+    line-height: 28px;
+    text-decoration: none;
+    font-family: sans-serif;
+    text-align: center;
+    z-index:10;
+}
+   }
 </style>
 </head>
 <body>
@@ -172,10 +228,10 @@ href="fonts/style.css"/>
 <form id='form' method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
 <div class="container">
   <div class="left-section">
-    <input type="date" name="anniversary_date" class="date-input" placeholder="Enter your Anniversary Date"  id="anniversary_date">
+    <input type="date" name="anniversary_date"  class="date-input" placeholder="Enter your Anniversary Date"  id="anniversary_date" max="<?php echo date('Y-m-d'); ?>">
     <input type="email" name="email" class="date-input"  placeholder="Enter your email id for Notification" id="email">
     <img src="images/reminder.png" alt="Reminder" style="width: 90%; max-width: 600px;">
-    <button type="button" id="submitBtn" onclick="setReminder()"></button>
+    <button type="button" id="submitBtn" onclick="setReminder()">next</button>
   </div>
   <div class="right-section">
     <img src="images/CLock-min (2).gif" alt="Clock" class="clock-gif">

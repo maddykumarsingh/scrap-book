@@ -41,7 +41,15 @@ function isValidDate($date) {
 <head>
     <link rel="stylesheet" type="text/css"
     href="fonts/style.css"/>
-  <?php include_once 'orientation-check.php'; ?>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ABSLI data enrichment">
+    <meta name="keywords" content="keyword1, keyword2, keyword3">
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title> ABSLI | Data Enrichment</title>
+ <link rel="icon" href="favicon.ico" type="image/x-icon">
 <style>
 @keyframes flyInFromTopLeft {
   from {
@@ -107,21 +115,26 @@ function isValidDate($date) {
   background-size: cover;
 }
 
-#submitBtn {
-  display: block;
-  margin: 20px auto;
-  background-image: url('images/Icon awesome-chevron-circle-right.png');
-  background-color: none;
-  width: 50px; /* Adjust size as needed */
-  height: 50px; /* Adjust size as needed */
-  background-size: cover;
-  border: none;
-  cursor: pointer;
-  position: absolute;
-  top: 18%;
-  left: 85%;
-  background-color: transparent;
-z-index:100;
+ #submitBtn {
+     display: block;
+    margin: 20px auto;
+    width: 180px;
+    height: 50px;
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: 2%;
+    right: 3%;
+    background-color: black;
+    border-radius: 30px;
+    color: white;
+    font-size: 32px;
+    line-height: 48px;
+    text-decoration: none;
+    font-family: sans-serif;
+    text-align: center;
+    z-index:10;
 }
 
 body {
@@ -133,13 +146,14 @@ body {
 }
 
 #content {
-  position: absolute;
-  top: 28%;
-  left: 40%;
-  width: 350px; /* Adjust size as needed */
-  height: 350px; /* Adjust size as needed */
-  background-size: cover;
-  animation: fadeIn 2s forwards;
+    height: 350px;
+    background-size: cover;
+    animation: fadeIn 2s forwards;
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+    float: left;
+    margin-top: -200px
 }
 
 #cakeContainer {
@@ -147,6 +161,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    display: inline-flex;
 }
 
 .candle {
@@ -186,7 +201,7 @@ input[type=date] {
     float:left;
     
       position: relative;
-
+z-index: -1;
   background-repeat: no-repeat;
   animation: flyInFromTopLeft 2s forwards;
       width: 50%;
@@ -217,6 +232,7 @@ text-align:left;
     overflow: hidden;
     bottom: 0;
      animation: flyInFromBottomRight 2s forwards;
+     z-index: -1;
 }
 
 .bottomSection img{
@@ -250,18 +266,7 @@ label.labelClass{
     font-size:32px;
 }
  @media screen and (max-width: 1000px) {
-           #content {
-    position: absolute;
-    top: 10%;
-    left: 40%;
-     width: 250px; /* Adjust size as needed */
-  height: 250px; /* Adjust size as needed */
-}
-
-#submitBtn {
-  margin: 10px auto;
-  top:71%;
-}  
+   
 
 label.labelClass{
      margin-left: 20px;
@@ -272,6 +277,15 @@ input[type=date] {
     display: block;
     margin: 20px auto;
 }
+
+
+#content {
+    height: 350px;;
+    float: left;
+    margin-top: -120px
+}
+
+
   
         }
         
@@ -319,8 +333,8 @@ input[type=date] {
     <div>
     <form method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
         <label for="dob"  class="labelClass">Enter your date of birth</label><br/>
-        <input type="date" id="dob" name="dob" required onchange="calculateAge()">
-        <button type="submit" id="submitBtn" ></button>
+        <input type="date" id="dob" name="dob" required onchange="calculateAge()" max="<?php echo date('Y-m-d'); ?>">
+        <button type="submit" id="submitBtn" >next</button>
     </form>
     </div>
     <div id="cakeContainer">
@@ -340,7 +354,7 @@ input[type=date] {
 </div>
 
 
-
+<?php include_once 'orientation-check.php'; ?>
 
 <script>
 function calculateAge() {
@@ -361,6 +375,7 @@ function displayCakeAndCandles(age) {
     
     // Assuming the candle images are named '1.png', '2.png', etc.
     const ageString = age.toString();
+    console.log(ageString);
     for (let i = 0; i < ageString.length; i++) {
         let candleImg = document.createElement('img');
         candleImg.src = 'images/'+ageString[i] + '.png';
@@ -368,13 +383,14 @@ function displayCakeAndCandles(age) {
         candleImg.style.width = '25px'; // Set the width of candles
         candleImg.style.height = 'auto';
         candleImg.style.top = '10%'; // Adjust the position as needed
-        candleImg.style.left = (40 + i * 10) + '%'; // Adjust the position as needed
+        candleImg.style.left = (39 + i * 10) + '%'; // Adjust the position as needed
         cakeContainer.appendChild(candleImg);
     }
 }
 
 
 </script>
-<?php include_once 'orientation-check.php'; ?>
+
+
 </body>
 </html>

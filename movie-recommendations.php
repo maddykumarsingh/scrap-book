@@ -3,21 +3,37 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Movie Recommendations</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ABSLI data enrichment">
+    <meta name="keywords" content="keyword1, keyword2, keyword3">
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title> ABSLI | Data Enrichment</title>
+ <link rel="icon" href="favicon.ico" type="image/x-icon">
 
 <style>
 
-#submitBtn {
-  display: block;
-  margin: 20px auto;
-  background-image: url('images/Next Icon.png');
-  width: 50px; /* Adjust size as needed */
-  height: 50px; /* Adjust size as needed */
-  background-size: cover;
-  border: none;
-  cursor: pointer;
-  background-color: transparent;
+       #submitBtn {
+        display: block;
+    margin: 20px auto;
+    width: 142px;
+    height: 36px;
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: 9%;
+    right: 3%;
+    background-color: black;
+    border-radius: 30px;
+    color: white;
+    font-size: 27px;
+    line-height: 39px;
+    text-decoration: none;
+    font-family: sans-serif;
+    text-align: center;
+    z-index: 10;
 }
 
   @keyframes flyInFromTopLeft {
@@ -81,14 +97,52 @@
     margin-bottom: 20px;
   }
   #logo {
-    background-image: url('images/ABC_Red.jpg');
-    background-size: cover;
-    width: 330px; /* Adjust size as needed */
-    height: 70px;
+    background-image: url('images/logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 120px; /* Adjust size as needed */
+    height: 120px;
     position: absolute;
     top: 1%;
     right: 1%;
 }
+
+
+ @media screen and (max-width: 1000px) {
+     #logo {
+   
+    width: 60px; /* Adjust size as needed */
+    height: 60px;
+     }
+     
+     .movie-name {
+    max-width: 50%;
+    height: auto;
+    margin-bottom: 20px;
+}
+    #submitBtn {
+     display: block;
+    margin: 10px auto;
+    width: 120px;
+    height: 30px;
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 105%;
+    right: 3%;
+    background-color: black;
+    border-radius: 20px;
+    color: white;
+    font-size: 22px;
+    line-height: 28px;
+    text-decoration: none;
+    font-family: sans-serif;
+    text-align: center;
+    z-index:10;
+}
+
+ }
 </style>
 </head>
 <body>
@@ -110,7 +164,7 @@
 
 </div>
 
-<a href="set-reminder.php" id="submitBtn"></a>
+<a href="set-reminder.php" id="submitBtn">next</a>
 
 <?php include_once 'orientation-check.php'; ?>
 </body>

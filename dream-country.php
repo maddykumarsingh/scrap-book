@@ -5,7 +5,6 @@ session_start();
 // Check if the user's ID is stored in the session
 if (!isset($_SESSION["id"])) {
     header("Location: index.php");
-    exit();
 }
 
 // Check if the form is submitted
@@ -38,7 +37,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <link rel="stylesheet" type="text/css"
     href="fonts/style.css"/>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ABSLI data enrichment">
+    <meta name="keywords" content="keyword1, keyword2, keyword3">
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title> ABSLI | Data Enrichment</title>
+ <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script type="text/javascript" src="./dist/js/chart.js"></script>
 <style>
 body {
     height: 100%;
@@ -53,21 +61,32 @@ body {
   }
 
 #logo {
-  background-image: url('images/ABC_Red.jpg');
+   background-image: url('images/logo.png');
   position: absolute;
-  top: 25px;
-  right: 25px;
-  width: 330px; /* Adjust size as needed */
-  height: 70px; /* Adjust size as needed */
-  background-size: cover;
+    top: 25px;
+    right: 44px;
+    width: 140px; 
+    height: 140px;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
-
+     h2.classh2{
+    text-align: center; color: #c31d2e; margin-top: 50px;
+  }
+  @media screen and (max-width: 1000px) {
+     h2.classh2{
+     font-size:22px;
+  }
+  
+  
+ }
+ 
 </style>
 </head>
 
 <body>
     <div id="logo"></div>
-    <h2 style="text-align: center; color: #c31d2e; margin-top: 50px; ">Favorite travel destination or dream destination</h2>
+    <h2 class="classh2 ">Favorite travel destination or dream destination</h2>
     <div id="regions_div" style="width: 900px; height: 500px; align-self: center; margin: auto; margin-top: 50px;">
     </div>
 

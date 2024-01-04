@@ -1,4 +1,4 @@
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="./dist/js/sweetalert.min.js"></script>
 <script>
 // JavaScript code to check and prompt for screen rotation on mobile with SweetAlert
 function checkOrientation() {

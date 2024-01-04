@@ -31,8 +31,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hobbies and Passions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ABSLI data enrichment">
+    <meta name="keywords" content="keyword1, keyword2, keyword3">
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title> ABSLI | Data Enrichment</title>
+ <link rel="icon" href="favicon.ico" type="image/x-icon">
 <link rel="stylesheet" type="text/css"
     href="fonts/style.css"/>
 <style>
@@ -100,28 +106,65 @@ img {
 height: auto;
 width: 100%;
 }
-#submitBtn {
-  display: block;
-  margin: 20px auto;
-  background-image: url('images/Icon\ awesome-chevron-circle-right.png');
-  width: 50px; /* Adjust size as needed */
-  height: 50px; /* Adjust size as needed */
-  background-size: cover;
-  border: none;
-  cursor: pointer;
-  position: absolute;
-  top:80%;
-  left:60%;
-  background-color: transparent;
-  }
+  
+ #submitBtn {
+     display: block;
+    margin: 20px auto;
+    width: 180px;
+    height: 50px;
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: 2%;
+    right: 3%;
+    background-color: black;
+    border-radius: 30px;
+    color: white;
+    font-size: 32px;
+    line-height: 48px;
+    text-decoration: none;
+    font-family: sans-serif;
+    text-align: center;
+    z-index:10;
+}
 
+ @media screen and (max-width: 1000px) {
+     
+.hobby-image {
+    width: 50px;
+}
+.bottom-section{
+    position: relative;
+    top: -44px;
+    gap:2px;
+}
+
+  
+  #submitBtn {
+     display: block;
+    margin: 20px auto;
+    width: 120px;
+    height: 30px;
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: 2%;
+    right: 3%;
+    background-color: black;
+    border-radius: 20px;
+    color: white;
+    font-size: 22px;
+    line-height: 28px;
+    text-decoration: none;
+    font-family: sans-serif;
+    text-align: center;
+    z-index:10;
+}
+}
 </style>
-<script src="
-https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js
-"></script>
-<link href="
-https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css
-" rel="stylesheet">
+
 </head>
 <body>
 
@@ -194,7 +237,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css
       </div>
       <!-- Repeat for other images -->
     </div>
-    <a onclick="submitForm()" id="submitBtn"></a>
+    <a onclick="submitForm()" id="submitBtn">next</a>
   </div>
 </div>
 

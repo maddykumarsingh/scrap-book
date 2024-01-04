@@ -16,6 +16,15 @@ if (isset($_SESSION["first_name"]) ) {
 <head>
     <link rel="stylesheet" type="text/css"
     href="fonts/style.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ABSLI data enrichment">
+    <meta name="keywords" content="keyword1, keyword2, keyword3">
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title> ABSLI | Data Enrichment</title>
+ <link rel="icon" href="favicon.ico" type="image/x-icon">
 <style>
 @keyframes flyInFromTopLeft {
   from {
@@ -236,7 +245,7 @@ p.pClass{
     <div class="centerSection">
         <div id="content">
     <h2 id="name" class="h2Class" ><?=$personName?></h2>
-    <p id="meaning" class="pClass">Your name is wonderfully unique and carries a divine touch; you are a precious blessing.</p>
+    <p id="meaning" class="pClass"></p>
 </div>
 
 

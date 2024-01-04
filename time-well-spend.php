@@ -4,7 +4,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Time Well Spent</title>
+    <meta name="description" content="ABSLI data enrichment">
+    <meta name="keywords" content="keyword1, keyword2, keyword3">
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+ <title> ABSLI | Data Enrichment</title>
+
 <style>
   body, html {
     height: 100%;
@@ -17,23 +24,26 @@
     background-repeat: no-repeat;
   }
   #logo {
-    background-image: url('images/ABC_Red.jpg');
-    background-size: cover;
-    width: 330px; /* Adjust size as needed */
-    height: 70px;
-    float: right; /* Align the logo to the top right corner */
+    background-image: url(images/logo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 120px;
+    height: 120px;
+    float: right;
     margin: 30px;
     clear: both;
   }
   #headerImage {
     background-image: url('images/Here are a few tips to spend your time wisely!.png');
-    background-size: contain;
+   background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    margin-top: 2vh;
-    width: auto;
-    height: 50px;
+    width: 80%;
+      height: 7%;
     clear: both;
+    margin: auto;
+    position: relative;
+    top: -76px;
     
   }
   #content {
@@ -42,23 +52,35 @@
   width: 70%;
   margin: auto;
   padding: 8px;
+  position: relative;
+    top: -68px;
   }
 
-  #submitBtn {
-  display: block;
-  margin: 20px auto;
-  background-image: url('images/Icon awesome-chevron-circle-right.png');
-  width: 50px; /* Adjust size as needed */
-  height: 50px; /* Adjust size as needed */
-  background-size: cover;
-  border: none;
-  cursor: pointer;
-  background-color: transparent;
+ #submitBtn {
+     display: block;
+    margin: 20px auto;
+    width: 180px;
+    height: 50px;
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: 2%;
+    right: 3%;
+    background-color: black;
+    border-radius: 30px;
+    color: white;
+    font-size: 32px;
+    line-height: 48px;
+    text-decoration: none;
+    font-family: sans-serif;
+    text-align: center;
+    z-index:10;
 }
 
   .tip-image {
-    width: 250px;
-    height: 250px;
+       width: 20%;
+    height: auto;
     margin: 10px;
     opacity: 0;
     transform: scale(0.5);
@@ -74,6 +96,49 @@
       opacity: 1;
     }
   }
+  
+   @media screen and (max-width: 1000px) {
+  
+    #headerImage {
+ 
+    top: -100px;
+    
+  }
+  #content {
+ 
+    top: -100px;
+  }
+  .tip-image {
+       width: 15%;
+  }
+  
+  
+  #submitBtn {
+     display: block;
+    margin: 20px auto;
+    width: 120px;
+    height: 30px;
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: 2%;
+    right: 3%;
+    background-color: black;
+    border-radius: 20px;
+    color: white;
+    font-size: 22px;
+    line-height: 28px;
+    text-decoration: none;
+    font-family: sans-serif;
+    text-align: center;
+    z-index:10;
+}
+
+
+   }
+  
+  
 </style>
 </head>
 <body>
@@ -87,9 +152,9 @@
 <img id="party" class="tip-image" src="images/Party.png" style="animation: rubberBand 1s 1.5s forwards;" alt="Make Health a priority">
 <img id="dating" class="tip-image" src="images/Dating.png" style="animation: rubberBand 1s 2s forwards;" alt="Strong friendships">
 <img id="dance" class="tip-image" src="images/Dance.png" style="animation: rubberBand 1s 2.5s forwards;" alt="Set personal goals">
-<a href="hobbies.php" id="submitBtn"></a>
-</div>
 
+</div>
+<a href="hobbies.php" id="submitBtn">next</a>
 <?php include_once 'orientation-check.php'; ?>
 </body>
 </html>
